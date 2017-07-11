@@ -8,6 +8,7 @@ import static com.rusticflare.markdown.GitHubMarkdown.headerOne;
 import static com.rusticflare.markdown.GitHubMarkdown.headerThree;
 import static com.rusticflare.markdown.GitHubMarkdown.headerTwo;
 import static com.rusticflare.markdown.GitHubMarkdown.italic;
+import static com.rusticflare.markdown.GitHubMarkdown.link;
 import static org.assertj.core.api.Assertions.assertThat;
 
 import org.junit.Test;
@@ -27,6 +28,12 @@ public class GitHubMarkdownTest {
     @Test
     public void testCode() {
         assertThat(code("text")).isEqualTo("`text`");
+    }
+
+    @Test
+    public void testLink() {
+        assertThat(link("text", "http://example.com/"))
+                .isEqualTo("[text](http://example.com/)");
     }
 
     @Test
