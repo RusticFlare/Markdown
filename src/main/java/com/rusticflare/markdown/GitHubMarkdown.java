@@ -5,6 +5,11 @@ public class GitHubMarkdown {
     private static final String SPACE = " ";
     private static final String NEWLINE = "\n";
 
+    private static final String OPEN_BRACKET = "[";
+    private static final String CLOSE_BRACKET = "]";
+    private static final String OPEN_PARENTHESES = "(";
+    private static final String CLOSE_PARENTHESES = ")";
+
     private static final String BOLD_TAG = "**";
     private static final String ITALICS_TAG = "_";
     private static final String CODE_TAG = "`";
@@ -26,6 +31,11 @@ public class GitHubMarkdown {
         return CODE_TAG + string + CODE_TAG;
     }
 
+    public static String link(String text, String url) {
+        return OPEN_BRACKET + text + CLOSE_BRACKET
+                + OPEN_PARENTHESES + url + CLOSE_PARENTHESES;
+    }
+
     public static String headerOne(String string) {
         return HEADER_ONE_TAG + string + NEWLINE;
     }
@@ -45,6 +55,5 @@ public class GitHubMarkdown {
     public static String headerFive(String string) {
         return HEADER_FIVE_TAG + string + NEWLINE;
     }
-
 
 }
