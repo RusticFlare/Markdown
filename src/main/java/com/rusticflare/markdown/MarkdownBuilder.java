@@ -1,12 +1,15 @@
 package com.rusticflare.markdown;
 
+import static java.util.Objects.requireNonNull;
+
 public class MarkdownBuilder {
 
     private final StringBuilder markdownBuilder = new StringBuilder();
 
     public MarkdownBuilder() {};
 
-    public String getAsString() {
+    @Override
+    public String toString() {
         return markdownBuilder.toString();
     }
 
@@ -19,7 +22,9 @@ public class MarkdownBuilder {
      *
      * @return itself
      */
-    public MarkdownBuilder add(String markdown) {
+    public MarkdownBuilder append(String markdown) {
+        requireNonNull(markdown);
+
         markdownBuilder.append(markdown);
         return this;
     }
