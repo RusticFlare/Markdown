@@ -20,8 +20,22 @@ public class MarkdownBuilderTest {
 
     @Test
     public void testGetAsStringReturnsEmptyStringForNewMarkdownBuilder() {
-        assertThat((new MarkdownBuilder()).getAsString())
+        assertThat((new MarkdownBuilder()).toString())
                 .isEmpty();
+    }
+
+    @Test
+    public void testAppend() {
+        MarkdownBuilder markdownBuilder = new MarkdownBuilder();
+        markdownBuilder.append("text");
+        assertThat(markdownBuilder.toString()).isEqualTo("text");
+    }
+
+    @Test
+    public void testAppendChain() {
+        MarkdownBuilder markdownBuilder = new MarkdownBuilder();
+        markdownBuilder.append("te").append("xt");
+        assertThat(markdownBuilder.toString()).isEqualTo("text");
     }
 
 }
