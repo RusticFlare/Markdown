@@ -4,6 +4,7 @@ public class GitHubMarkdown {
 
     private static final String SPACE = " ";
     private static final String NEWLINE = "\n";
+    private static final String DOUBLE_NEWLINE = NEWLINE + NEWLINE;
 
     private static final String OPEN_BRACKET = "[";
     private static final String CLOSE_BRACKET = "]";
@@ -13,11 +14,11 @@ public class GitHubMarkdown {
     private static final String BOLD_TAG = "**";
     private static final String ITALICS_TAG = "_";
     private static final String CODE_TAG = "`";
-    private static final String HEADER_ONE_TAG = "#" + SPACE;
-    private static final String HEADER_TWO_TAG = "##" + SPACE;
-    private static final String HEADER_THREE_TAG = "###" + SPACE;
-    private static final String HEADER_FOUR_TAG = "####" + SPACE;
-    private static final String HEADER_FIVE_TAG = "#####" + SPACE;
+    private static final String HEADER_ONE_TAG = DOUBLE_NEWLINE + "#" + SPACE;
+    private static final String HEADER_TWO_TAG = DOUBLE_NEWLINE + "##" + SPACE;
+    private static final String HEADER_THREE_TAG = DOUBLE_NEWLINE + "###" + SPACE;
+    private static final String HEADER_FOUR_TAG = DOUBLE_NEWLINE + "####" + SPACE;
+    private static final String HEADER_FIVE_TAG = DOUBLE_NEWLINE + "#####" + SPACE;
 
     public static String bold(String string) {
         return BOLD_TAG + string + BOLD_TAG;
