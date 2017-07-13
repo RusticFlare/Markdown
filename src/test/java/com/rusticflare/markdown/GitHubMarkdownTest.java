@@ -1,6 +1,7 @@
 package com.rusticflare.markdown;
 
 import static com.rusticflare.markdown.GitHubMarkdown.bold;
+import static com.rusticflare.markdown.GitHubMarkdown.bulletList;
 import static com.rusticflare.markdown.GitHubMarkdown.code;
 import static com.rusticflare.markdown.GitHubMarkdown.headerFive;
 import static com.rusticflare.markdown.GitHubMarkdown.headerFour;
@@ -38,27 +39,42 @@ public class GitHubMarkdownTest {
 
     @Test
     public void testHeaderOne() {
-        assertThat(headerOne("text")).isEqualTo("\n\n# text\n");
+        assertThat(headerOne("text")).isEqualTo("# text\n");
     }
 
     @Test
     public void testHeaderTwo() {
-        assertThat(headerTwo("text")).isEqualTo("\n\n## text\n");
+        assertThat(headerTwo("text")).isEqualTo("## text\n");
     }
 
     @Test
     public void testHeaderThree() {
-        assertThat(headerThree("text")).isEqualTo("\n\n### text\n");
+        assertThat(headerThree("text")).isEqualTo("### text\n");
     }
 
     @Test
     public void testHeaderFour() {
-        assertThat(headerFour("text")).isEqualTo("\n\n#### text\n");
+        assertThat(headerFour("text")).isEqualTo("#### text\n");
     }
 
     @Test
     public void testHeaderFive() {
-        assertThat(headerFive("text")).isEqualTo("\n\n##### text\n");
+        assertThat(headerFive("text")).isEqualTo("##### text\n");
+    }
+
+    @Test
+    public void testBulletListNoEntries() {
+            assertThat(bulletList()).isEqualTo("\n- \n");
+    }
+
+    @Test
+    public void testBulletListOneEntry() {
+            assertThat(bulletList("text")).isEqualTo("\n- text\n");
+    }
+
+    @Test
+    public void testBulletListTwoEntries() {
+            assertThat(bulletList("text", "text")).isEqualTo("\n- text\n- text\n");
     }
 
 }
