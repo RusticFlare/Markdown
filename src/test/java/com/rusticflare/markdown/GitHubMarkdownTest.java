@@ -38,27 +38,27 @@ public class GitHubMarkdownTest {
 
     @Test
     public void testHeaderOne() {
-        assertThat(headerOne("text")).isEqualTo("# text\n");
+        assertThat(headerOne("text")).isEqualTo("\n\n# text\n");
     }
 
     @Test
     public void testHeaderTwo() {
-        assertThat(headerTwo("text")).isEqualTo("## text\n");
+        assertThat(headerTwo("text")).isEqualTo("\n\n## text\n");
     }
 
     @Test
     public void testHeaderThree() {
-        assertThat(headerThree("text")).isEqualTo("### text\n");
+        assertThat(headerThree("text")).isEqualTo("\n\n### text\n");
     }
 
     @Test
     public void testHeaderFour() {
-        assertThat(headerFour("text")).isEqualTo("#### text\n");
+        assertThat(headerFour("text")).isEqualTo("\n\n#### text\n");
     }
 
     @Test
     public void testHeaderFive() {
-        assertThat(headerFive("text")).isEqualTo("##### text\n");
+        assertThat(headerFive("text")).isEqualTo("\n\n##### text\n");
     }
 
 }
