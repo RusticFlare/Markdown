@@ -64,17 +64,17 @@ public class GitHubMarkdownTest {
 
     @Test
     public void testBulletListNoEntries() {
-            assertThat(bulletList()).isEqualTo("\n- \n");
+            assertThat(bulletList()).isEqualTo("\n- \n\n");
     }
 
     @Test
     public void testBulletListOneEntry() {
-            assertThat(bulletList("text")).isEqualTo("\n- text\n");
+            assertThat(bulletList("text")).isEqualTo("\n- text\n\n");
     }
 
     @Test
     public void testBulletListTwoEntries() {
-            assertThat(bulletList("text", "text")).isEqualTo("\n- text\n- text\n");
+            assertThat(bulletList("text", "text")).isEqualTo("\n- text\n- text\n\n");
     }
 
 }

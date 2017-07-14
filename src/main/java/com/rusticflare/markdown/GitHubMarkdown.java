@@ -9,6 +9,7 @@ public class GitHubMarkdown {
 
     private static final String SPACE = " ";
     private static final String NEWLINE = "\n";
+    private static final String DOUBLE_NEWLINE = NEWLINE + NEWLINE;
 
     private static final String OPEN_BRACKET = "[";
     private static final String CLOSE_BRACKET = "]";
@@ -68,7 +69,7 @@ public class GitHubMarkdown {
     }
 
     private static Collector<CharSequence, ?, String> toBulletList() {
-        return joining(BULLET, BULLET, NEWLINE);
+        return joining(BULLET, BULLET, DOUBLE_NEWLINE);
     }
 
 }
