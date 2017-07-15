@@ -8,14 +8,14 @@ import org.junit.Test;
 public class StringsTest {
 
     @Test
-    public void testTrimEnd() {
+    public void testTrimTrailingWhitspace() {
         assertSoftly(softly -> {
             softly.assertThat(trimTrailingWhitspace("")).isEmpty();
             softly.assertThat(trimTrailingWhitspace(" ")).isEmpty();
             softly.assertThat(trimTrailingWhitspace("text")).isEqualTo("text");
             softly.assertThat(trimTrailingWhitspace("\ntext")).isEqualTo("\ntext");
-            softly.assertThat(trimTrailingWhitspace("\ntext\n")).isEqualTo("\ntext");
-            softly.assertThat(trimTrailingWhitspace("\ntext\n ")).isEqualTo("\ntext");
+            softly.assertThat(trimTrailingWhitspace("text\n")).isEqualTo("text");
+            softly.assertThat(trimTrailingWhitspace("text\n ")).isEqualTo("text");
         });
     }
 
