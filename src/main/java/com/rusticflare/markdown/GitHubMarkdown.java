@@ -68,7 +68,7 @@ public class GitHubMarkdown {
 
     public static String bulletList(String... strings) {
         return Stream.of(strings)
-                .map(Strings::trimTrailingWhitspace)
+                .map(Strings::removeTrailingWhitspace)
                 .map(GitHubMarkdown::indent)
                 .collect(toBulletList());
     }
