@@ -5,9 +5,12 @@ import static java.util.stream.Collectors.joining;
 import java.util.stream.Collector;
 import java.util.stream.Stream;
 
+import com.rusticflare.markdown.utilities.Strings;
+
 public class GitHubMarkdown {
 
     private static final String SPACE = " ";
+    private static final String DOUBLE_SPACE = SPACE + SPACE;
     private static final String NEWLINE = "\n";
     private static final String DOUBLE_NEWLINE = NEWLINE + NEWLINE;
 
@@ -65,7 +68,13 @@ public class GitHubMarkdown {
 
     public static String bulletList(String... strings) {
         return Stream.of(strings)
+                .map(Strings::trimTrailingWhitspace)
+                .map(GitHubMarkdown::indent)
                 .collect(toBulletList());
+    }
+
+    private static String indent(String string) {
+        return string.replace(NEWLINE, NEWLINE + DOUBLE_SPACE);
     }
 
     private static Collector<CharSequence, ?, String> toBulletList() {

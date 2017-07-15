@@ -64,17 +64,36 @@ public class GitHubMarkdownTest {
 
     @Test
     public void testBulletListNoEntries() {
-            assertThat(bulletList()).isEqualTo("\n- \n\n");
+        assertThat(bulletList()).isEqualTo("\n- \n\n");
     }
 
     @Test
     public void testBulletListOneEntry() {
-            assertThat(bulletList("text")).isEqualTo("\n- text\n\n");
+        assertThat(bulletList("text")).isEqualTo("\n- text\n\n");
     }
 
     @Test
     public void testBulletListTwoEntries() {
-            assertThat(bulletList("text", "text")).isEqualTo("\n- text\n- text\n\n");
+        assertThat(bulletList("text", "text"))
+            .isEqualTo("\n- text\n- text\n\n");
+    }
+
+    @Test
+    public void testNestedBulletList() {
+        assertThat(bulletList("item" + bulletList("nested item")))
+            .isEqualTo("\n- item\n  - nested item\n\n");
+    }
+
+    @Test
+    public void testTwoItemsInNestedBulletList() {
+        assertThat(bulletList("item" + bulletList("nested item", "nested item")))
+            .isEqualTo("\n- item\n  - nested item\n  - nested item\n\n");
+    }
+
+    @Test
+    public void testDoubleNestedBulletList() {
+        assertThat(bulletList("item" + bulletList("nested item" + bulletList("double nested item"))))
+            .isEqualTo("\n- item\n  - nested item\n    - double nested item\n\n");
     }
 
 }
