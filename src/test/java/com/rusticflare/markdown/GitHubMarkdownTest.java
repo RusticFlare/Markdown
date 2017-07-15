@@ -8,6 +8,7 @@ import static com.rusticflare.markdown.GitHubMarkdown.headerFour;
 import static com.rusticflare.markdown.GitHubMarkdown.headerOne;
 import static com.rusticflare.markdown.GitHubMarkdown.headerThree;
 import static com.rusticflare.markdown.GitHubMarkdown.headerTwo;
+import static com.rusticflare.markdown.GitHubMarkdown.horizontalRule;
 import static com.rusticflare.markdown.GitHubMarkdown.italic;
 import static com.rusticflare.markdown.GitHubMarkdown.link;
 import static org.assertj.core.api.Assertions.assertThat;
@@ -60,6 +61,11 @@ public class GitHubMarkdownTest {
     @Test
     public void testHeaderFive() {
         assertThat(headerFive("text")).isEqualTo("##### text\n");
+    }
+
+    @Test
+    public void testHorizontalRule() {
+        assertThat(horizontalRule()).isEqualTo("---");
     }
 
     @Test

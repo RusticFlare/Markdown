@@ -27,7 +27,8 @@ public class GitHubMarkdown {
     private static final String HEADER_THREE_TAG = "###" + SPACE;
     private static final String HEADER_FOUR_TAG = "####" + SPACE;
     private static final String HEADER_FIVE_TAG = "#####" + SPACE;
-    private static final String BULLET = NEWLINE+ "-" + SPACE;
+    private static final String BULLET = NEWLINE + "-" + SPACE;
+    private static final String HORIZONTAL_RULE = "---";
 
     public static String bold(String string) {
         return BOLD_TAG + string + BOLD_TAG;
@@ -64,6 +65,10 @@ public class GitHubMarkdown {
 
     public static String headerFive(String string) {
         return HEADER_FIVE_TAG + string + NEWLINE;
+    }
+
+    public static String horizontalRule() {
+        return HORIZONTAL_RULE;
     }
 
     public static String bulletList(String... strings) {
