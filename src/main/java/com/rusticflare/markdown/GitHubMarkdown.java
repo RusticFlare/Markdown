@@ -1,5 +1,6 @@
 package com.rusticflare.markdown;
 
+import static com.rusticflare.markdown.Language.NONE;
 import static java.util.stream.Collectors.joining;
 
 import java.util.stream.Collector;
@@ -9,9 +10,12 @@ import com.rusticflare.markdown.utilities.Strings;
 
 public class GitHubMarkdown {
 
+    private static final String NEWLINE = "\n";
+    private static final String TRIPLE_TICK = "```";
+    private static final String END_CODE_BLOCK = NEWLINE + TRIPLE_TICK + NEWLINE;
+
     private static final String SPACE = " ";
     private static final String DOUBLE_SPACE = SPACE + SPACE;
-    private static final String NEWLINE = "\n";
     private static final String DOUBLE_NEWLINE = NEWLINE + NEWLINE;
 
     private static final String OPEN_BRACKET = "[";
@@ -76,6 +80,14 @@ public class GitHubMarkdown {
                 .map(Strings::removeTrailingWhitspace)
                 .map(GitHubMarkdown::indent)
                 .collect(toBulletList());
+    }
+
+    public static String codeBlock(String string) {
+        return codeBlock(string, NONE);
+    }
+
+    public static String codeBlock(String string, Language language) {
+        return TRIPLE_TICK + language + NEWLINE + string + END_CODE_BLOCK;
     }
 
     private static String indent(String string) {
