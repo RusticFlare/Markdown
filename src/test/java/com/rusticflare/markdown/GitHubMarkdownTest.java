@@ -3,6 +3,7 @@ package com.rusticflare.markdown;
 import static com.rusticflare.markdown.GitHubMarkdown.bold;
 import static com.rusticflare.markdown.GitHubMarkdown.bulletList;
 import static com.rusticflare.markdown.GitHubMarkdown.code;
+import static com.rusticflare.markdown.GitHubMarkdown.codeBlock;
 import static com.rusticflare.markdown.GitHubMarkdown.headerFive;
 import static com.rusticflare.markdown.GitHubMarkdown.headerFour;
 import static com.rusticflare.markdown.GitHubMarkdown.headerOne;
@@ -11,6 +12,7 @@ import static com.rusticflare.markdown.GitHubMarkdown.headerTwo;
 import static com.rusticflare.markdown.GitHubMarkdown.horizontalRule;
 import static com.rusticflare.markdown.GitHubMarkdown.italic;
 import static com.rusticflare.markdown.GitHubMarkdown.link;
+import static com.rusticflare.markdown.Language.JAVA;
 import static org.assertj.core.api.Assertions.assertThat;
 
 import org.junit.Test;
@@ -100,6 +102,18 @@ public class GitHubMarkdownTest {
     public void testDoubleNestedBulletList() {
         assertThat(bulletList("item" + bulletList("nested item" + bulletList("double nested item"))))
             .isEqualTo("\n- item\n  - nested item\n    - double nested item\n\n");
+    }
+
+    @Test
+    public void testCodeBlock() {
+        assertThat(codeBlock("test"))
+            .isEqualTo("```\ntest\n```\n");
+    }
+
+    @Test
+    public void testJavaCodeBlock() {
+        assertThat(codeBlock("test", JAVA))
+            .isEqualTo("```java\ntest\n```\n");
     }
 
 }
