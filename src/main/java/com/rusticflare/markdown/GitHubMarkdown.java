@@ -87,7 +87,7 @@ public class GitHubMarkdown {
     }
 
     public static String codeBlock(String string, Language language) {
-        return TRIPLE_TICK + language.tag + NEWLINE + string + END_CODE_BLOCK;
+        return TRIPLE_TICK + language + NEWLINE + string + END_CODE_BLOCK;
     }
 
     private static String indent(String string) {

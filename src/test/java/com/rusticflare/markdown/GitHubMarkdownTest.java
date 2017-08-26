@@ -107,13 +107,13 @@ public class GitHubMarkdownTest {
     @Test
     public void testCodeBlock() {
         assertThat(codeBlock("test"))
-            .isEqualTo("```\ntest\n```\n");
+            .isEqualTo("```NONE\ntest\n```\n");
     }
 
     @Test
     public void testJavaCodeBlock() {
         assertThat(codeBlock("test", JAVA))
-            .isEqualTo("```java\ntest\n```\n");
+            .isEqualTo("```JAVA\ntest\n```\n");
     }
 
 }
